@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "material-starter-53bb1": {
+      "hosting": {
+        "material-start": [
+          "material-starter-53bb1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "material-starter-53bb1"
+  }
+}

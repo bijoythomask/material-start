@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,12 +91,29 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "material-start:build:production",
+            "firebaseProject": "material-starter-53bb1",
+            "firebaseHostingSite": "material-starter-53bb1"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7598117e-9480-42a9-aebe-e1bea01dd2ad",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }
