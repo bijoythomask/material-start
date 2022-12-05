@@ -6,10 +6,12 @@ import { loadRecipessSuccess } from '../actions/recipes.actions';
 export const recipesFeatureKey = 'recipes';
 
 export interface RecipesState {
+  selectedRecipe: Recipe;
   recipes: ReadonlyArray<Recipe>;
 }
 
 export const initialState: RecipesState = {
+  selectedRecipe: null,
   recipes: [],
 };
 

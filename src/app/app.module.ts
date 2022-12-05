@@ -20,6 +20,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieEffects } from './store/effects/movie.effects';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesEffects } from './store/effects/recipes.effects';
+import { RecipeComponent } from './recipes/recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RecipesEffects } from './store/effects/recipes.effects';
     ProfileComponent,
     MoviesComponent,
     RecipesComponent,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,

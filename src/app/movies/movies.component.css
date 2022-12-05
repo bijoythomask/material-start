@@ -1,0 +1,11 @@
+.mat-table {
+    width: 100%;
+  }
+
+  .mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 12px 20px 12px 0;
+  }

@@ -1,1 +1,4 @@
-<p>recipes works!</p>
+<mat-card *ngFor="let recipe of recipes$ | async">
+  <mat-card-header>{{ recipe.name }}</mat-card-header>
+  <mat-divider></mat-divider>
+</mat-card>

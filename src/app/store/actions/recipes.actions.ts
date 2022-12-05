@@ -12,3 +12,8 @@ export const loadRecipessFailure = createAction(
   '[Recipes] Load Recipess Failure',
   props<{ error: any }>()
 );
+
+export const selectRecipe = createAction(
+  '[Recipes] Select Recipe Failure',
+  props<{ recipe: Recipe }>()
+);

@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 const materialModules: any = [
   MatToolbarModule,
@@ -19,6 +20,7 @@ const materialModules: any = [
   MatGridListModule,
   MatCardModule,
   MatMenuModule,
+  MatTableModule,
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'recipes', component: RecipesComponent },
+  // { path: '/', component: HomeComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,33 @@
+<mat-card *ngIf="recipe$ | async as recipe">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-subtitle>{{ recipe.timers }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ recipe.imageURL }}" alt="Recipe image" />
+  <mat-card-content>
+    <div class="mat-title">Steps to prepare</div>
+    <div>
+      <mat-list *ngFor="let step of recipe.steps">
+        <mat-list-item>{{ step }}</mat-list-item>
+      </mat-list>
+    </div>
+    <div class="mat-title">Ingredients</div>
+    <div>
+      <mat-list *ngFor="let ingredient of recipe.ingredients">
+        <mat-list-item
+          >{{ ingredient.name }}, {{ ingredient.type }} ({{
+            ingredient.type
+          }})</mat-list-item
+        >
+      </mat-list>
+    </div>
+    <div class="mat-title">Resources</div>
+    <div class="mat-body">{{ recipe.originalURL }}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+  <mat-divider></mat-divider>
+</mat-card>

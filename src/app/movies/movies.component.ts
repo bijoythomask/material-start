@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, startWith, tap } from 'rxjs';
 import { Movie } from '../model/movie.model';
 import { loadMovies } from '../store/actions/movie.actions';
 import { selectMovies } from '../store/selectors/movie.selectors';
@@ -12,6 +12,15 @@ import { selectMovies } from '../store/selectors/movie.selectors';
 })
 export class MoviesComponent implements OnInit {
   movies$: Observable<ReadonlyArray<Movie>> = this.store.select(selectMovies);
+
+  displayedColumns: string[] = [
+    'id',
+    'title',
+    'year',
+    'director',
+    'actors',
+    'runtime',
+  ];
 
   constructor(private store: Store) {}
 

@@ -8,6 +8,6 @@ export class MoviesService {
   constructor(private db: AngularFireDatabase) {}
 
   getMovies() {
-    return this.db.object('movies').valueChanges();
+    return this.db.object('movies/movies').valueChanges();
   }
 }
