@@ -21,6 +21,8 @@ import { MovieEffects } from './store/effects/movie.effects';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesEffects } from './store/effects/recipes.effects';
 import { RecipeComponent } from './recipes/recipe/recipe.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { RecipeComponent } from './recipes/recipe/recipe.component';
     MoviesComponent,
     RecipesComponent,
     RecipeComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { RecipeComponent } from './recipes/recipe/recipe.component';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([UserEffects, MovieEffects, RecipesEffects]),
+    StoreRouterConnectingModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],

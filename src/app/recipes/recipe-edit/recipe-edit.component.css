@@ -1,0 +1,31 @@
+.mat-form-field-wide {
+  width: 80%;
+}
+
+mat-card {
+  margin: 10px;
+}
+
+.mat-form-field {
+  margin-right: 10px;
+}
+
+.mat-form-group-wide {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mat-from-group-item {
+  flex-grow: 8;
+}
+
+.action-card {
+  display: flex;
+  justify-content: left;
+}
+
+.acton-button {
+  margin-right: 20px;
+}

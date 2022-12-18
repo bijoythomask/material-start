@@ -1,0 +1,103 @@
+<section>
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header class="mat-title"> Recipe Details</mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="mat-form-field-wide">
+          <mat-label>Recipe Name</mat-label>
+          <input matInput placeholder="Recipe Name" formControlName="name" />
+          <mat-hint>Name of the recipe</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mat-form-field-wide">
+          <mat-label>Recipe Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Recipe Description"
+            formControlName="description"
+          >
+          </textarea>
+          <mat-hint>Description of the recipe</mat-hint>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-card formArrayName="steps">
+      <mat-card-header class="mat-title"> Steps to Prepare </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let indx = index; let step; of: steps.controls">
+          <mat-form-field appearance="outline" class="mat-form-field-wide">
+            <mat-label>Step</mat-label>
+            <input matInput placeholder="Step" [formControlName]="indx" />
+          </mat-form-field>
+          <button mat-icon-button color="danger" (click)="deleteStep(indx)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+      <mat-action-list>
+        <button mat-button (click)="addStep()" color="primary">Add Step</button>
+      </mat-action-list>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header class="mat-title"> Ingredients </mat-card-header>
+      <mat-card-content formArrayName="ingredients">
+        <div
+          class="mat-form-group-wide"
+          *ngFor="let index = index; let ingredient; of: ingredients.controls"
+          [formGroupName]="index"
+        >
+          <mat-form-field appearance="outline" class="mat-from-group-item">
+            <mat-label>Recipe Name</mat-label>
+            <input
+              matInput
+              placeholder="Recipe ingredient"
+              formControlName="name"
+            />
+            <!-- <mat-hint>Name of the ingredient</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Recipe quantity</mat-label>
+            <input
+              matInput
+              placeholder="Recipe quantity"
+              formControlName="quantity"
+            />
+            <!-- <mat-hint>Quantity of the ingredient</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ingredient type</mat-label>
+            <input matInput placeholder="Recipe type" formControlName="type" />
+
+            <!-- <mat-hint>Type of the ingredient</mat-hint> -->
+          </mat-form-field>
+          <button
+            mat-icon-button
+            color="danger"
+            (click)="deleteIngredient(index)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+      <mat-action-list>
+        <button (click)="addIngredient()" mat-button color="primary">
+          Add Ingredient
+        </button>
+      </mat-action-list>
+    </mat-card>
+
+    <mat-card class="action-card">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="acton-button"
+      >
+        Save
+      </button>
+      <button mat-raised-button color="danger" class="acton-button">
+        Cancel
+      </button>
+    </mat-card>
+  </form>
+</section>

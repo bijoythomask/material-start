@@ -15,14 +15,24 @@ export class RecipesComponent implements OnInit {
   recipes$: Observable<ReadonlyArray<Recipe>> =
     this.store.select(selectRecipes);
 
-  coulumnCount$ = this.breakpointObserver
-    .observe([Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small])
+  flexLayout$ = this.breakpointObserver
+    .observe([
+      Breakpoints.XLarge,
+      Breakpoints.Large,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.Handset,
+    ])
     .pipe(
       map((result) => {
         const breakpoint = result.breakpoints;
-        if (breakpoint[Breakpoints.Large]) return 3;
-        else if (breakpoint[Breakpoints.Medium]) return 2;
-        return 1;
+        if (breakpoint[Breakpoints.Handset]) return { col: 1, height: 180 };
+        if (breakpoint[Breakpoints.Tablet]) return { col: 1, height: 200 };
+        else if (breakpoint[Breakpoints.Small]) return { col: 1, height: 380 };
+        else if (breakpoint[Breakpoints.Medium]) return { col: 2, height: 400 };
+        else if (breakpoint[Breakpoints.Large]) return { col: 3, height: 500 };
+        else if (breakpoint[Breakpoints.XLarge]) return { col: 4, height: 600 };
+        return { col: 1, height: 320 };
       })
     );
 
@@ -33,11 +43,5 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadRecipess());
-    this.breakpointObserver
-      .observe([Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small])
-      .pipe(tap((result) => console.log(result)))
-      .subscribe((val) => {
-        console.log(val);
-      });
   }
 }
