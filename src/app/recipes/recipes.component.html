@@ -31,7 +31,13 @@
           >
             Details
           </button>
-          <button mat-button color="accent">Edit</button>
+          <button
+            mat-button
+            color="accent"
+            [routerLink]="['/recipes', recipe.id, 'edit']"
+          >
+            Edit
+          </button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

@@ -29,3 +29,8 @@ mat-card {
 .acton-button {
   margin-right: 20px;
 }
+.mat-card-image {
+  max-width: 60%;
+  padding-left: 20px;
+  /* height: 40px; */
+}

@@ -18,8 +18,19 @@
           </textarea>
           <mat-hint>Description of the recipe</mat-hint>
         </mat-form-field>
+        <mat-form-field appearance="outline" class="mat-form-field-wide">
+          <mat-label>Refences</mat-label>
+          <textarea
+            matInput
+            placeholder="Recipe references"
+            formControlName="referenceURL"
+          >
+          </textarea>
+          <mat-hint>Recipe references </mat-hint>
+        </mat-form-field>
       </mat-card-content>
     </mat-card>
+
     <mat-card formArrayName="steps">
       <mat-card-header class="mat-title"> Steps to Prepare </mat-card-header>
       <mat-card-content>
@@ -86,6 +97,27 @@
       </mat-action-list>
     </mat-card>
 
+    <mat-card>
+      <mat-card-header class="mat-title"> Recipe Image</mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="mat-form-field-wide">
+          <mat-label>Recipe Image</mat-label>
+          <input
+            matInput
+            placeholder="Recipe Image"
+            formControlName="imageURL"
+          />
+          <mat-hint>Image of the recipe to be displayed</mat-hint>
+        </mat-form-field>
+        <img
+          mat-card-image
+          *ngIf="imgUrl.value"
+          src="{{ imgUrl.value }}"
+          alt="Recipe image"
+        />
+      </mat-card-content>
+    </mat-card>
+
     <mat-card class="action-card">
       <button
         type="submit"
@@ -95,7 +127,12 @@
       >
         Save
       </button>
-      <button mat-raised-button color="danger" class="acton-button">
+      <button
+        mat-raised-button
+        color="danger"
+        routerLink="/recipes"
+        class="acton-button"
+      >
         Cancel
       </button>
     </mat-card>
